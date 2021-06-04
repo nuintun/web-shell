@@ -11,7 +11,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <title>xterm</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="description" content="章鱼健身" />
+        <meta name="description" content="xterm" />
         <meta name="theme-color" content="#ffffff" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="application-name" content="xterm" />
