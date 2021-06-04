@@ -1,0 +1,10 @@
+.xterm {
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  background-color: #000;
+
+  > :global(.terminal) {
+    padding: 8px;
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "paths": {},
+    "noEmit": false,
+    "outDir": ".boot",
+    "module": "commonjs",
+  },
+  "include": [
+    "server/**/*.ts"
+  ]
+}

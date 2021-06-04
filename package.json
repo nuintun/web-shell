@@ -1,0 +1,38 @@
+{
+  "name": "web-shell",
+  "version": "0.1.0",
+  "description": "A web shell tools.",
+  "scripts": {
+    "lint": "tsc --noEmit",
+    "build": "npm run build:server && next build",
+    "build:server": "tsc --project tsconfig.server.json",
+    "dev": "npm run build:server && node .boot/server/index.js",
+    "start": "cross-env NODE_ENV=production node .boot/server/index.js"
+  },
+  "dependencies": {
+    "bufferutil": "^4.0.3",
+    "cross-env": "^7.0.3",
+    "form-data": "^4.0.0",
+    "koa": "^2.13.1",
+    "next": "^10.2.3",
+    "node-pty": "^0.10.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-toast": "^2.0.0",
+    "utf-8-validate": "^5.0.5",
+    "ws": "^7.4.6",
+    "xterm": "^4.12.0",
+    "xterm-addon-fit": "^0.5.0",
+    "xterm-addon-unicode11": "^0.2.0",
+    "xterm-addon-webgl": "^0.11.1"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.13.3",
+    "@types/react": "^17.0.9",
+    "@types/react-dom": "^17.0.6",
+    "@types/ws": "^7.4.4",
+    "prettier": "^2.3.0",
+    "sass": "^1.34.1",
+    "typescript": "^4.3.2"
+  }
+}
