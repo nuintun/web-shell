@@ -30,10 +30,10 @@ export default function useXTerm(server: http.Server | https.Server) {
 
       switch (data.action) {
         case XTermActions.stdin:
-          xterm && xterm.write(data.payload);
+          xterm.write(data.payload);
           break;
         case XTermActions.resize:
-          xterm && xterm.resize(data.payload.cols, data.payload.rows);
+          xterm.resize(data.payload.cols, data.payload.rows);
           break;
       }
     });
