@@ -4,6 +4,7 @@ import { FitAddon } from 'xterm-addon-fit';
 import { WebglAddon } from 'xterm-addon-webgl';
 import useWebSocket from '/hooks/useWebSocket';
 import { Terminal, ITerminalOptions } from 'xterm';
+import { WebLinksAddon } from 'xterm-addon-web-links';
 import { Unicode11Addon } from 'xterm-addon-unicode11';
 import { serializer, XTermActions } from '/utils/xterm';
 
@@ -23,6 +24,7 @@ export default function XTerm(props: XTermProps) {
     const webglAddon = new WebglAddon();
     const resize = () => fitAddon.fit();
     const { customKeyEventHandler } = props;
+    const webLinksAddon = new WebLinksAddon();
     const unicode11Addon = new Unicode11Addon();
 
     if (customKeyEventHandler) {
@@ -43,6 +45,7 @@ export default function XTerm(props: XTermProps) {
 
     xterm.loadAddon(fitAddon);
     xterm.loadAddon(webglAddon);
+    xterm.loadAddon(webLinksAddon);
     xterm.loadAddon(unicode11Addon);
 
     fitAddon.fit();
