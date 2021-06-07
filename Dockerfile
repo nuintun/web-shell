@@ -1,8 +1,11 @@
 # 配置运行环境
-FROM node:latest AS deps
+FROM node:alpine AS deps
 
 # 配置工作目录
 WORKDIR /wwwroot
+
+# 安装编译环境
+RUN apk update && apk add --update g++ make python3
 
 # 复制依赖配置
 COPY ./LICENSE /wwwroot/LICENSE
@@ -13,7 +16,7 @@ COPY ./package.json /wwwroot/package.json
 RUN yarn install --production --pure-lockfile
 
 # 配置运行环境
-FROM node:latest AS runner
+FROM node:alpine AS runner
 
 # 配置工作目录
 WORKDIR /wwwroot
@@ -23,6 +26,8 @@ ENV NODE_ENV production
 # 禁用 Next 数据遥测
 ENV NEXT_TELEMETRY_DISABLED 1
 
+# 安装时区依赖
+RUN apk update && apk add bash tzdata
 # 设置默认时区
 RUN cp -r -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
