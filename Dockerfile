@@ -5,7 +5,7 @@ FROM node:alpine AS deps
 WORKDIR /wwwroot
 
 # 安装编译环境
-RUN apk update && apk add --update g++ make python3
+RUN apk update && apk add g++ make python3
 
 # 复制依赖配置
 COPY ./LICENSE /wwwroot/LICENSE
