@@ -5,7 +5,7 @@ FROM node:alpine AS deps
 WORKDIR /wwwroot
 
 # 安装编译环境
-RUN apk update && apk add g++ make python3
+RUN apk update && apk add --no-cache g++ make python3
 
 # 复制依赖配置
 COPY ./LICENSE /wwwroot/LICENSE
@@ -27,7 +27,7 @@ ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
 
 # 安装时区依赖
-RUN apk update && apk add bash tzdata
+RUN apk update && apk add --no-cache bash tzdata
 # 设置默认时区
 RUN cp -r -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
