@@ -5,6 +5,7 @@ FROM node:latest AS deps
 WORKDIR /wwwroot
 
 # 复制依赖配置
+COPY ./LICENSE /wwwroot/LICENSE
 COPY ./yarn.lock /wwwroot/yarn.lock
 COPY ./package.json /wwwroot/package.json
 
@@ -30,6 +31,7 @@ COPY ./.env /wwwroot/.env
 COPY ./.boot /wwwroot/.boot
 COPY ./.next /wwwroot/.next
 COPY ./public /wwwroot/public
+COPY ./LICENSE /wwwroot/LICENSE
 COPY ./package.json /wwwroot/package.json
 COPY ./next.config.js /wwwroot/next.config.js
 COPY --from=deps /wwwroot/node_modules /wwwroot/node_modules
