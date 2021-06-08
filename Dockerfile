@@ -4,6 +4,8 @@ FROM node:alpine AS deps
 # 配置工作目录
 WORKDIR /wwwroot
 
+# 切换国内软件源
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
 # 安装编译环境
 RUN apk update && apk add --no-cache g++ make python3
 
@@ -26,6 +28,8 @@ ENV NODE_ENV production
 # 禁用 Next 数据遥测
 ENV NEXT_TELEMETRY_DISABLED 1
 
+# 切换国内软件源
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
 # 安装时区依赖
 RUN apk update && apk add --no-cache bash tzdata
 # 设置默认时区
