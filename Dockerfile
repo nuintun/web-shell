@@ -14,8 +14,8 @@ COPY ./LICENSE /wwwroot/LICENSE
 COPY ./yarn.lock /wwwroot/yarn.lock
 COPY ./package.json /wwwroot/package.json
 
-# 更新 NPM 全局模块
-RUN npm update -g
+# 更新 NPM 全局模块并清理缓存
+RUN npm update -g && npm cache clean -f
 # 安装依赖文件
 RUN yarn install --production --pure-lockfile
 
@@ -36,8 +36,8 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositorie
 RUN apk update && apk upgrade -f && apk add --no-cache bash tzdata
 # 设置默认时区
 RUN cp -r -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-# 更新 NPM 全局模块
-RUN npm update -g
+# 更新 NPM 全局模块并清理缓存
+RUN npm update -g && npm cache clean -f
 
 # 复制项目资源
 COPY ./.env /wwwroot/.env
