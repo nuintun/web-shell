@@ -65,7 +65,7 @@ export default function XTerm(props: XTermProps) {
     const { data } = ws.message;
 
     data && xterm.write(data);
-  }, [ws.message.data]);
+  }, [ws.message]);
 
   return <div className={props.className} ref={stageRef} />;
 }
