@@ -26,7 +26,7 @@ export default function useXTerm(server: http.Server | https.Server) {
     });
 
     ws.on('message', message => {
-      const data = deserializer(message.toString());
+      const data = deserializer(message as string);
 
       switch (data.action) {
         case XTermActions.stdin:
