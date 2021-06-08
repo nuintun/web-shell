@@ -7,7 +7,7 @@ WORKDIR /wwwroot
 # 切换国内软件源
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
 # 安装编译环境
-RUN apk update && apk add --no-cache g++ make python3
+RUN apk update && apk upgrade -f && apk add --no-cache g++ make python3
 
 # 复制依赖配置
 COPY ./LICENSE /wwwroot/LICENSE
@@ -31,7 +31,7 @@ ENV NEXT_TELEMETRY_DISABLED 1
 # 切换国内软件源
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
 # 安装时区依赖
-RUN apk update && apk add --no-cache bash tzdata
+RUN apk update && apk upgrade -f && apk add --no-cache bash tzdata
 # 设置默认时区
 RUN cp -r -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
