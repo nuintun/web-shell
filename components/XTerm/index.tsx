@@ -64,7 +64,7 @@ export default function XTerm(props: XTermProps) {
   useEffect(() => {
     const { data } = ws.message;
 
-    data && xterm.write(data.toString());
+    data && xterm.write(data);
   }, [ws.message.data]);
 
   return <div className={props.className} ref={stageRef} />;
