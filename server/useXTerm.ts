@@ -25,7 +25,7 @@ export default function useXTerm(server: http.Server | https.Server) {
       const closeStates = [WebSocket.CLOSING, WebSocket.CLOSED];
 
       if (!closeStates.some(state => state === ws.readyState)) {
-        ws.close(exitCode ? 1006 : 1005);
+        ws.close(exitCode ? 1011 : 1000);
       }
     });
 
