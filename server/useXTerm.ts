@@ -22,11 +22,7 @@ export default function useXTerm(server: http.Server | https.Server) {
     });
 
     xterm.onExit(({ exitCode }) => {
-      const closeStates = [WebSocket.CLOSING, WebSocket.CLOSED];
-
-      if (!closeStates.some(state => state === ws.readyState)) {
-        ws.close(exitCode ? 1011 : 1000);
-      }
+      exitCode ? ws.terminate() : ws.close(1000);
     });
 
     ws.on('message', message => {
