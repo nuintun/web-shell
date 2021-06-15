@@ -8,7 +8,7 @@ const XTerm = dynamic(() => import('/components/XTerm'), { ssr: false });
 const xtermOptions: ITerminalOptions = {
   rows: 60,
   cols: 120,
-  scrollback: 100,
+  scrollback: 365,
   cursorBlink: true,
   cursorStyle: 'underline',
   theme: { background: '#000' }
