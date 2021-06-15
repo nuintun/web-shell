@@ -3,7 +3,6 @@ import 'xterm/css/xterm.css';
 
 import Head from 'next/head';
 import { AppProps } from 'next/app';
-import { Toaster } from 'react-hot-toast';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -22,7 +21,6 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
       </Head>
-      <Toaster position="top-right" />
       <Component {...pageProps} />
     </>
   );
