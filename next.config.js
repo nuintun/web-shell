@@ -7,5 +7,6 @@
 module.exports = {
   trailingSlash: false,
   reactStrictMode: true,
-       poweredByHeader: false
+  poweredByHeader: false,
+  eslint: { ignoreDuringBuilds: true }
 };
