@@ -22,6 +22,7 @@ export interface Options<M> {
   onOpen?: (event: Event) => void;
   onError?: (event: Event) => void;
   onClose?: (event: CloseEvent) => void;
+  onReconnect?: (count: number) => void;
   onMessage?: (event: MessageEvent<M>) => void;
 }
 
@@ -42,6 +43,7 @@ export default function useWebSocket<M>(url: string, options: Options<M> = {}): 
     onClose,
     onMessage,
     protocols,
+    onReconnect,
     manual = false,
     reconnectLimit = 3,
     reconnectInterval = 3000
@@ -65,7 +67,7 @@ export default function useWebSocket<M>(url: string, options: Options<M> = {}): 
       reconnectTimerRef.current = setTimeout(() => {
         connectWebSocket();
 
-        reconnectTimesRef.current++;
+        onReconnect && onReconnect(++reconnectTimesRef.current);
       }, reconnectInterval);
     }
   });
