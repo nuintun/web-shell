@@ -5,8 +5,6 @@
 declare namespace NodeJS {
   interface ProcessEnv {
     readonly NEXT_PUBLIC_APP_TITLE: string;
-    readonly NEXT_PUBLIC_LOCAL_HOST: string;
-    readonly NEXT_PUBLIC_REMOTE_HOST: string;
   }
 }
 
